@@ -1,0 +1,113 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: "2022-12-13T10:51:38Z"
+  generateName: vault-7f54bbc56c-
+  labels:
+    app: vault
+    pod-template-hash: 7f54bbc56c
+  name: vault-7f54bbc56c-f4lml
+  namespace: default
+  ownerReferences:
+  - apiVersion: apps/v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: ReplicaSet
+    name: vault-7f54bbc56c
+    uid: 2ef98beb-7761-494b-b87a-3956a89838f8
+  resourceVersion: "14524"
+  uid: 29f1277a-278e-41d1-88fc-c4ec911b85e0
+spec:
+  containers:
+  - image: vault
+    imagePullPolicy: Always
+    name: vault
+    resources: {}
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: kube-api-access-8rd68
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  enableServiceLinks: true
+  nodeName: minikube
+  preemptionPolicy: PreemptLowerPriority
+  priority: 0
+  restartPolicy: Always
+  schedulerName: default-scheduler
+  securityContext: {}
+  serviceAccount: default
+  serviceAccountName: default
+  terminationGracePeriodSeconds: 30
+  tolerations:
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  volumes:
+  - name: kube-api-access-8rd68
+    projected:
+      defaultMode: 420
+      sources:
+      - serviceAccountToken:
+          expirationSeconds: 3607
+          path: token
+      - configMap:
+          items:
+          - key: ca.crt
+            path: ca.crt
+          name: kube-root-ca.crt
+      - downwardAPI:
+          items:
+          - fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.namespace
+            path: namespace
+status:
+  conditions:
+  - lastProbeTime: null
+    lastTransitionTime: "2022-12-13T10:51:38Z"
+    status: "True"
+    type: Initialized
+  - lastProbeTime: null
+    lastTransitionTime: "2022-12-15T19:34:22Z"
+    status: "True"
+    type: Ready
+  - lastProbeTime: null
+    lastTransitionTime: "2022-12-15T19:34:22Z"
+    status: "True"
+    type: ContainersReady
+  - lastProbeTime: null
+    lastTransitionTime: "2022-12-13T10:51:38Z"
+    status: "True"
+    type: PodScheduled
+  containerStatuses:
+  - containerID: docker://9394d72fc6b1ea771e21dd901ae9353a2d3e7c44406daa5254d96d0fb2c03a53
+    image: vault:latest
+    imageID: docker-pullable://vault@sha256:403c4cdc39091f58dd804133b8f1f3cc933e1a3929bd64eab50443d4557e3ee8
+    lastState:
+      terminated:
+        containerID: docker://e2ec0da04e9fcc18b960b6e2d5d52a2351c982bed8b650b4f9fa128153f02c6c
+        exitCode: 0
+        finishedAt: "2022-12-13T14:55:03Z"
+        reason: Completed
+        startedAt: "2022-12-13T11:34:29Z"
+    name: vault
+    ready: true
+    restartCount: 2
+    started: true
+    state:
+      running:
+        startedAt: "2022-12-15T19:34:21Z"
+  hostIP: 192.168.49.2
+  phase: Running
+  podIP: 172.17.0.2
+  podIPs:
+  - ip: 172.17.0.2
+  qosClass: BestEffort
+  startTime: "2022-12-13T10:51:38Z"

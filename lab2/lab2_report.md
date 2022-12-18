@@ -4,6 +4,6 @@ Course: [Introduction to distributed technologies](https://github.com/itmo-ict-f
 Year: 2022/2023  
 Group: 19.Б05  
 Author: Sagatdinov Artur Rinatovich  
-Lab: Lab1  
-Date of create: 10.12.2022  
-Date of finished: 15.12.2022  
+Lab: Lab2  
+Date of create: 15.12.2022  
+Date of finished: 18.12.2022  

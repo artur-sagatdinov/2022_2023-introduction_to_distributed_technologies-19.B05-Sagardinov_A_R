@@ -12,10 +12,10 @@ Date of finished: 15.12.2022
   
 ### 1) Что сейчас произошло и что сделали команды указанные ранее? 
 - Сначала запустили minikube, с помощью команды `minikube start`.
-- Далее создали кластер vault, заранее загрзив контейнер, с помощью команды `kubectl create deployment vault --image=vault`
+- Далее создали кластер vault, заранее загрузив контейнер, с помощью команды `kubectl create deployment vault --image=vault`
 - Получили доступ к данному объекту "извне" `kubectl expose deployment vault --type=NodePort --port=8200`
 - Проверили, что все работает 
-![image1](./images/image1.PNG)
+![image1](./images/image2.PNG)
 - С помощью команды `minikube service vault --url` получили URL сервеса.
 
 ### 2. Где взять токен для входа в Vault?
